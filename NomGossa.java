@@ -31,7 +31,7 @@ public class NomGossa {
     }
 
     private void inici() {
-        //nomGenerat();
+        
         while (true) {
             numeroAleatori=(int)(Math.random()*sNoms.length);
             
@@ -40,48 +40,4 @@ public class NomGossa {
       
         }
     }
-
-    private void nomGenerat() {
-       
-        contador = 0;
-        String sNom = "a";
-        
-        File file = new File("noms.txt");
-
-        try {
-            if (!file.exists()) {
-                System.out.println("Arxiu inexistent!");
-            } else {
-               
-                RandomAccessFile raf = new RandomAccessFile(file, "r");
-
-                while (sNom != null) {
-
-                    sNom = raf.readLine();
-                    contador++;
-                   
-                }
-         
-                sNoms = new String[contador];
-                
-               
-                sNom = "";
-                raf.seek(0);
-               
-                
-                for (int i=0; i<sNoms.length;i++){
-                    sNoms[i]=raf.readLine();
-                }
-    
-                raf.close();
-                
-            }
-        } catch (Exception e) {
-            System.err.println("No s'ha trobat l'arxiu "+e);
-        }
-       
-
-    }
-    
-
 }
